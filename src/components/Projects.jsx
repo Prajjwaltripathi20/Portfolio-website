@@ -54,7 +54,12 @@ const Projects = () => {
                     </p>
                 </motion.div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                    gap: '2.5rem',
+                    justifyContent: 'center'
+                }}>
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
@@ -62,29 +67,27 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -8 }}
+                            whileHover={{ y: -10 }}
                             style={{
-                                background: '#0e0e0e', // Very dark/black card
+                                background: '#121212',
                                 borderRadius: '24px',
                                 overflow: 'hidden',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '100%',
-                                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+                                boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)',
                                 position: 'relative'
                             }}
                         >
                             {/* Project Image Area */}
                             <div style={{
                                 width: '100%',
-                                height: '260px', // Slightly taller
-                                background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%)',
+                                height: '280px',
+                                background: '#1a1a1a',
                                 position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                overflow: 'hidden'
+                                overflow: 'hidden',
+                                borderBottom: '1px solid rgba(255,255,255,0.05)'
                             }}>
                                 <img
                                     src={project.image}
@@ -94,48 +97,74 @@ const Projects = () => {
                                         height: '100%',
                                         objectFit: 'cover',
                                         transition: 'transform 0.5s ease',
-                                        opacity: 0.9
+                                        opacity: 0.95 // Slightly brighter
                                     }}
                                     className="project-img"
                                 />
                             </div>
 
                             {/* Content Area */}
-                            <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{
+                                padding: '2rem',
+                                flex: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '1.5rem' // Consistent spacing
+                            }}>
 
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                                    <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--text-primary)', lineHeight: 1.2, width: '90%' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <h3 style={{
+                                        fontSize: '1.75rem',
+                                        fontWeight: '700',
+                                        color: 'var(--text-primary)',
+                                        lineHeight: 1.2,
+                                        letterSpacing: '-0.02em'
+                                    }}>
                                         {project.title}
                                     </h3>
-                                    <div style={{ display: 'flex', gap: '0.8rem', paddingTop: '5px' }}>
+                                    <div style={{ display: 'flex', gap: '1rem', marginTop: '5px' }}>
                                         {project.links?.github && (
-                                            <a href={project.links.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = 'var(--text-primary)'} onMouseLeave={e => e.target.style.color = 'var(--text-secondary)'}>
-                                                <Github size={22} />
+                                            <a href={project.links.github} target="_blank" rel="noopener noreferrer"
+                                                style={{ color: 'var(--text-secondary)', transition: 'all 0.2s', display: 'flex', alignItems: 'center' }}
+                                                onMouseEnter={e => { e.currentTarget.style.color = 'var(--text-primary)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                                onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                            >
+                                                <Github size={20} />
                                             </a>
                                         )}
                                         {project.links?.live && (
-                                            <a href={project.links.live} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = 'var(--text-primary)'} onMouseLeave={e => e.target.style.color = 'var(--text-secondary)'}>
-                                                <ExternalLink size={22} />
+                                            <a href={project.links.live} target="_blank" rel="noopener noreferrer"
+                                                style={{ color: 'var(--text-secondary)', transition: 'all 0.2s', display: 'flex', alignItems: 'center' }}
+                                                onMouseEnter={e => { e.currentTarget.style.color = 'var(--text-primary)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                                onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                            >
+                                                <ExternalLink size={20} />
                                             </a>
                                         )}
                                     </div>
                                 </div>
 
-                                <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: '1.6', fontSize: '1rem', flex: 1 }}>
+                                <p style={{
+                                    color: 'var(--text-secondary)',
+                                    lineHeight: '1.6',
+                                    fontSize: '1rem',
+                                    flex: 1
+                                }}>
                                     {project.description}
                                 </p>
 
-                                {/* Tech Stack Tags - Darker Pill Style */}
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                                {/* Tech Stack Tags - Sleeker Pill Style */}
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginTop: 'auto' }}>
                                     {project.tech.map(t => (
                                         <span key={t} style={{
-                                            padding: '0.5rem 1.2rem',
+                                            padding: '0.4rem 1rem',
                                             borderRadius: '50px',
-                                            background: 'rgba(21, 33, 56, 1)', // Dark Blue bg
-                                            color: '#3b82f6', // Bright Blue text
-                                            fontSize: '0.85rem',
-                                            fontWeight: '600',
-                                            border: '1px solid rgba(59, 130, 246, 0.1)'
+                                            background: 'rgba(59, 130, 246, 0.1)',
+                                            color: '#60a5fa',
+                                            fontSize: '0.8rem',
+                                            fontWeight: '500',
+                                            letterSpacing: '0.02em',
+                                            border: '1px solid rgba(59, 130, 246, 0.2)'
                                         }}>
                                             {t}
                                         </span>
