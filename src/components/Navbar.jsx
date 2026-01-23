@@ -27,6 +27,7 @@ const Navbar = () => {
     return (
         <>
             <motion.nav
+                className="liquid-hover"
                 initial={{ y: -100, opacity: 0, x: '-50%' }}
                 animate={{ y: 0, opacity: 1, x: '-50%' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // smooth easeOutExpo-ish
@@ -62,11 +63,17 @@ const Navbar = () => {
                     gap: '2px',
                     marginRight: '1rem'
                 }}>
-                    P<motion.span
+                    <motion.span
+                        whileHover={{ rotate: [0, -10, 10, -10, 10, 0], transition: { duration: 0.5 } }}
+                        style={{ display: 'inline-block' }}
+                    >
+                        P
+                    </motion.span>
+                    <motion.span
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 }}
-                        style={{ color: 'var(--accent)', fontSize: '2rem', lineHeight: 0 }}
+                        style={{ color: '#22c55e', fontSize: '2rem', lineHeight: 0 }}
                     >.</motion.span>
                 </a>
 

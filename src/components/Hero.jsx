@@ -354,29 +354,18 @@ const Hero = () => {
                                     />
                                 </div>
 
-                                <div style={{ background: '#0d1117', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '1rem' }}>
+                                <div style={{ background: '#0d1117', padding: '15px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '1.5rem', boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5)' }}>
                                     <img
-                                        src="https://leetcode-stats-six.vercel.app/api?username=PrajjwalTripathi18&theme=dark"
+                                        src="/leetcode-heatmap.png"
                                         alt="LeetCode Heatmap"
-                                        style={{ width: '100%', height: 'auto', display: 'block' }}
+                                        style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '6px', opacity: 0.9 }}
                                     />
                                 </div>
 
-                                {/* GitHub Commit History */}
-                                <h3 style={{ color: 'var(--text-primary)', marginBottom: '1rem', marginTop: '1rem', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GH" style={{ width: '20px', filter: 'invert(1)' }} /> Commit History
-                                </h3>
-                                <div style={{ background: '#0d1117', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', width: '100%', overflowX: 'auto' }}>
-                                    <img
-                                        src="https://ghchart.rshah.org/3b82f6/Prajjwaltripathi20"
-                                        alt="GitHub Contribution Graph"
-                                        style={{ width: '100%', height: 'auto', display: 'block' }}
-                                    />
-                                </div>
-
+                                {/* LeetCode Commit History / Activity */}
                                 <div style={{ marginTop: '2rem', textAlign: 'center', paddingBottom: '1rem' }}>
                                     <a
-                                        href="https://github.com/Prajjwaltripathi20"
+                                        href="https://leetcode.com/u/PrajjwalTripathi18/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -389,7 +378,7 @@ const Hero = () => {
                                             textDecoration: 'none'
                                         }}
                                     >
-                                        View GitHub Profile <ExternalLink size={14} />
+                                        View LeetCode Profile <ExternalLink size={14} />
                                     </a>
                                 </div>
 
