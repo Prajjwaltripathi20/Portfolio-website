@@ -67,11 +67,11 @@ const Experience = () => {
                                     height: '80px',
                                     borderRadius: '50%',
                                     overflow: 'hidden',
-                                    border: '2px solid var(--accent)',
+                                    border: '4px solid var(--accent)',
                                     background: 'black',
                                     position: 'relative',
                                     zIndex: 2,
-                                    boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)'
+                                    boxShadow: '0 0 25px rgba(59, 130, 246, 0.5)'
                                 }}>
                                     <img
                                         src={exp.logo}

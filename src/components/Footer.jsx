@@ -116,11 +116,7 @@ const Footer = () => {
                 }}>
                     <p>© {currentYear} Prajjwal Tripathi. All rights reserved.</p>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <span>Made with</span>
-                        <Heart size={16} fill="var(--accent)" color="var(--accent)" />
-                        <span>and React</span>
-                    </div>
+
 
                     <button
                         onClick={scrollToTop}
