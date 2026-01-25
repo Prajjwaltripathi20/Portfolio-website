@@ -40,7 +40,7 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section id="projects" style={{ padding: '8rem 0', position: 'relative' }}>
+        <section id="projects" className="section-padding">
             <div className="container" style={{ maxWidth: '1400px' }}> {/* Increased width for 3 cols */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ const Projects = () => {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: '2.5rem',
                     justifyContent: 'center'
                 }}>

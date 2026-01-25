@@ -25,7 +25,7 @@ const SocialLinks = () => {
     ];
 
     return (
-        <div style={{
+        <div className="social-links-sidebar" style={{
             position: 'fixed',
             left: '2rem',
             bottom: '0',
@@ -68,6 +68,13 @@ const SocialLinks = () => {
                     opacity: 0.5
                 }}
             />
+            <style>{`
+                @media (max-width: 768px) {
+                    .social-links-sidebar {
+                        display: none !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };

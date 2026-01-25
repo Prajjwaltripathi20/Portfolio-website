@@ -18,7 +18,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section id="experience" style={{ padding: '8rem 0', position: 'relative' }}>
+        <section id="experience" className="section-padding">
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -53,12 +53,7 @@ const Experience = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            style={{
-                                display: 'flex',
-                                gap: '2rem',
-                                position: 'relative',
-                                zIndex: 1
-                            }}
+                            className="experience-item"
                         >
                             {/* Left: Logo with Glow */}
                             <div style={{ flexShrink: 0 }}>
@@ -84,7 +79,7 @@ const Experience = () => {
                             {/* Right: Content Card with Arrow */}
                             <div style={{ flex: 1, position: 'relative' }}>
                                 {/* Arrow pointing to logo - Pure CSS Triangle */}
-                                <div style={{
+                                <div className="arrow-left" style={{
                                     position: 'absolute',
                                     left: '-10px',
                                     top: '30px',
@@ -175,6 +170,30 @@ const Experience = () => {
                     ))}
                 </div>
             </div>
+            <style>{`
+                .experience-item {
+                    display: flex;
+                    gap: 2rem;
+                    position: relative;
+                    z-index: 1;
+                }
+                
+                @media (max-width: 768px) {
+                    .experience-item {
+                        gap: 1rem;
+                        flex-direction: column;
+                    }
+                    /* Adjust alignment when stacked */
+                    .experience-item > div:first-child {
+                        align-self: flex-start;
+                        margin-bottom: 1rem;
+                    }
+                     /* Hide the left arrow on mobile if stacked */
+                     .experience-item .arrow-left {
+                        display: none;
+                     }
+                }
+            `}</style>
         </section>
     );
 };

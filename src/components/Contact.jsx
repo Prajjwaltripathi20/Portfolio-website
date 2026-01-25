@@ -21,7 +21,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" style={{ padding: '8rem 0', position: 'relative', overflow: 'hidden' }}>
+        <section id="contact" className="section-padding" style={{ position: 'relative', overflow: 'hidden' }}>
             {/* Background Decoration */}
             <div style={{
                 position: 'absolute',

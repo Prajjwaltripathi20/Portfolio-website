@@ -26,13 +26,13 @@ const techData = [
 
 const TechStack = () => {
     return (
-        <section id="tech" style={{ padding: '8rem 0', overflow: 'hidden', minHeight: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <section id="tech" className="section-padding" style={{ overflow: 'hidden', minHeight: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div className="container" style={{ textAlign: 'center', marginBottom: '8rem', zIndex: 2 }}>
                 <h2 className="section-title">Tech Ecosystem</h2>
                 <p style={{ color: 'var(--text-secondary)' }}>Orbiting around my core competencies</p>
             </div>
 
-            <div style={{
+            <div className="tech-orbit-container" style={{
                 position: 'relative',
                 width: '100%',
                 height: '800px', // Increased height to prevent overlap
@@ -146,6 +146,18 @@ const TechStack = () => {
                 })}
 
             </div>
+            <style>{`
+                @media (max-width: 768px) {
+                    #tech {
+                        min-height: 600px !important;
+                    }
+                    .tech-orbit-container {
+                        transform: scale(0.6);
+                        height: 500px !important;
+                        margin-top: -100px; /* Pull it up a bit */
+                    }
+                }
+            `}</style>
         </section>
     );
 };
