@@ -28,14 +28,7 @@ const Hero = () => {
     const name = "Prajjwaltripathi.".split("");
 
     return (
-        <section id="home" className="hero-section" style={{
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            overflow: 'hidden'
-        }}>
+        <section id="home" className="hero-section">
             {/* Background Glow */}
             <div style={{
                 position: 'absolute',
@@ -63,18 +56,10 @@ const Hero = () => {
                 zIndex: -1
             }} />
 
-            <div className="container" style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap', // Standard wrap, Text first then Image
-                gap: '4rem',
-                maxWidth: '1400px'
-            }}>
+            <div className="container hero-container">
 
                 {/* Left Content */}
-                <div style={{ flex: '1 1 500px', textAlign: 'left' }}> {/* Flex basis 500px ensures wrapping on smaller screens */}
+                <div className="hero-text-content"> {/* Flex basis 500px ensures wrapping on smaller screens */}
 
                     {/* Status Indicators */}
                     <motion.div
@@ -252,23 +237,12 @@ const Hero = () => {
 
                 {/* Right Content - Flip Card */}
                 <motion.div
+                    className="hero-image-content"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    style={{
-                        flex: '1 1 400px', // Allow shrinking/growing with basis
-                        display: 'flex',
-                        justifyContent: 'center',
-                        zIndex: 10
-                    }}
                 >
-                    <div
-                        style={{
-                            width: 'min(400px, 90vw)', // Reduced width
-                            height: 'min(500px, 60vh)', // Reduced height
-                            perspective: '1000px',
-                            cursor: 'pointer'
-                        }}
+                    <div className="profile-card"
                         onMouseEnter={() => setIsFlipped(true)}
                         onMouseLeave={() => setIsFlipped(false)}
                     >
@@ -394,15 +368,97 @@ const Hero = () => {
           background: transparent;
         }
 
-        /* Default padding for mobile */
         .hero-section {
-            padding: 100px 2rem 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 2rem 60px; /* Default desktop padding */
+        }
+
+        .hero-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4rem;
+            max-width: 1400px;
+        }
+
+        .hero-text-content {
+            flex: 1 1 500px;
+            text-align: left;
+        }
+
+        .hero-image-content {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .profile-card {
+            width: min(400px, 90vw);
+            height: min(500px, 60vh);
+            perspective: 1000px;
+            cursor: pointer;
         }
 
         /* Large screens: Increase padding to clear fixed social sidebar */
         @media (min-width: 1024px) {
             .hero-section {
                 padding: 100px 8rem 60px;
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .hero-section {
+                padding: 120px 1.5rem 4rem; /* More top padding for navbar */
+                display: block; /* Remove vertical centering constraint */
+                height: auto;
+                min-height: auto;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse; /* Image top, Text bottom? Or Text top Image bottom. Standard is Text top. Let's stick to standard but managed vertical stacking. */
+                flex-direction: column;
+                gap: 3rem;
+                justify-content: flex-start;
+            }
+            
+            .hero-text-content {
+                flex: none;
+                width: 100%;
+                text-align: center; /* Center text on mobile */
+            }
+
+            /* Center the status indicators/buttons on mobile */
+            .hero-text-content > div { 
+                justify-content: center; 
+            }
+            
+            /* Specific fix for the status indicators container */
+            .hero-text-content > div:first-child {
+               justify-content: center;
+            }
+            
+            .hero-text-content h1 {
+                justify-content: center;
+            }
+
+            .hero-image-content {
+                flex: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .profile-card {
+                width: min(320px, 85vw); /* Slightly smaller on mobile */
+                height: min(450px, 55vh);
             }
         }
       `}</style>
