@@ -123,8 +123,8 @@ const Navbar = () => {
 
                 {/* Resume Button */}
                 <motion.a
-                    href="/resume.pdf"
-                    download="Prajjwal_Tripathi_Resume.pdf"
+                    href="/resume.png"
+                    download="Prajjwal_Tripathi_Resume.png"
                     whileHover={{ scale: 1.05, backgroundColor: 'var(--accent)', color: 'white', borderColor: 'transparent' }}
                     whileTap={{ scale: 0.95 }}
                     style={{
@@ -210,8 +210,8 @@ const Navbar = () => {
                             </a>
                         ))}
                         <motion.a
-                            href="/resume.pdf"
-                            download="Prajjwal_Tripathi_Resume.pdf"
+                            href="/resume.png"
+                            download="Prajjwal_Tripathi_Resume.png"
                             whileTap={{ scale: 0.98 }}
                             style={{
                                 display: 'flex',
